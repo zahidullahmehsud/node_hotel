@@ -57,6 +57,8 @@ router.get('/', async (req, res) => {
     }
 })
 
+
+// Update Function
 router.put('/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -83,6 +85,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//Delete Function
 router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
