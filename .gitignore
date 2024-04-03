@@ -1,2 +1,5 @@
 // NODE MODULE Ignore file
 node_modules/
+
+MongoDB username and password.txt
+.env

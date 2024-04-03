@@ -2,14 +2,10 @@ const express = require('express')
 const app = express()
 const db = require('./db.js')
 var bodyParser = require('body-parser')
-
+require('dotenv').config()
 
 app.use(bodyParser.json())   // req.body
-const PORT = 3000;
-
-
-
-
+const PORT = process.env.PORT || 3000
 
 
 app.get('/', function (req, res) {
@@ -26,7 +22,6 @@ const menuItemRoutes = require('./routes/menuItemRoutes.js')
 
 app.use('/person', peronRoutes)
 app.use('/menuitem', menuItemRoutes)
-
 
 
 
