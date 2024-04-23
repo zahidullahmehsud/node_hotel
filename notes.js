@@ -3,7 +3,7 @@ const os = require('os');
 const notes = require('./notes.js')
 var _ = require('lodash')
 
-console.log('notes  is loaded Successfully')
+console.log('notes is loaded Successfully')
 
 const age = 32;
 

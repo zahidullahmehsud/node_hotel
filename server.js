@@ -3,18 +3,30 @@ const app = express()
 const db = require('./db.js')
 var bodyParser = require('body-parser')
 require('dotenv').config()
+const passport = require('./auth.js')
+
+
 
 app.use(bodyParser.json())   // req.body
 const PORT = process.env.PORT || 3000
 
+//Middleware Function
+
+const logRequest = (req, res, next) => {
+    console.log(`[${new Date().toLocaleString()}] Request Made to : ${req.originalUrl}`)
+    next()
+}
+
+app.use(logRequest)
+
+app.use(passport.initialize())
+const localAuthMiddleware = passport.authenticate('local', { session: false })
 
 app.get('/', function (req, res) {
     res.send('WELCOME to Hotel')
 })
 
-app.get('/categories', function (req, res) {
-    res.send('Tech , Sports , News , Finance')
-})
+
 
 //Import all router Files
 const peronRoutes = require('./routes/personRoutes.js')
